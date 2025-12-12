@@ -58,5 +58,50 @@ class AdminProjectController extends Controller
             ->with('success', 'Project created successfully!');
     }
 
+    /**
+     * Show the form for editing the specified project
+     */
+    public function edit(Project $project)
+    {
+        return view('admin.projects.edit', compact('project'));
+    }
+
+    /**
+     * Update the specified project in storage
+     */
+    public function update(UpdateProjectRequest $request, Project $project)
+    {
+        $data = $request->validated();
+
+        // Handle cover image upload
+        if ($request->hasFile('cover_image')) {
+            // Delete old image
+            if ($project->cover_image_path) {
+                Storage::disk('public')->delete($project->cover_image_path);
+            }
+            $data['cover_image_path'] = $this->uploadImage($request->file('cover_image'));
+        }
+
+        // Handle ZIP file upload
+        if ($request->hasFile('zip_file')) {
+            // Delete old ZIP
+            if ($project->zip_file_path) {
+                Storage::disk('public')->delete($project->zip_file_path);
+            }
+            $data['zip_file_path'] = $this->uploadZip($request->file('zip_file'));
+        }
+
+        // Update slug if title changed
+        if ($request->has('title') && $request->title !== $project->title) {
+            $data['slug'] = Str::slug($data['title']);
+        }
+
+        // Update project
+        $project->update($data);
+
+        return redirect()->route('admin.projects.index')
+            ->with('success', 'Project updated successfully!');
+    }
+
 
 }

@@ -125,4 +125,15 @@ class AdminProjectController extends Controller
 
         return $path;
     }
+
+    /**
+     * Upload ZIP file
+     */
+    private function uploadZip($file): string
+    {
+        $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.zip';
+        $path = $file->storeAs('projects/zips', $filename, 'public');
+
+        return $path;
+    }
 }

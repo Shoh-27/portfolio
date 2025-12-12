@@ -23,5 +23,13 @@ class AdminProjectController extends Controller
         return view('admin.projects.index', compact('projects'));
     }
 
+    /**
+     * Show the form for creating a new project
+     */
+    public function create()
+    {
+        return view('admin.projects.create');
+    }
+
 
 }

@@ -31,5 +31,32 @@ class AdminProjectController extends Controller
         return view('admin.projects.create');
     }
 
+    /**
+     * Store a newly created project in storage
+     */
+    public function store(StoreProjectRequest $request)
+    {
+        $data = $request->validated();
+
+        // Handle cover image upload
+        if ($request->hasFile('cover_image')) {
+            $data['cover_image_path'] = $this->uploadImage($request->file('cover_image'));
+        }
+
+        // Handle ZIP file upload
+        if ($request->hasFile('zip_file')) {
+            $data['zip_file_path'] = $this->uploadZip($request->file('zip_file'));
+        }
+
+        // Generate slug
+        $data['slug'] = Str::slug($data['title']);
+
+        // Create project
+        Project::create($data);
+
+        return redirect()->route('admin.projects.index')
+            ->with('success', 'Project created successfully!');
+    }
+
 
 }

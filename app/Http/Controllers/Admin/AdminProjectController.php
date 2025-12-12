@@ -115,5 +115,14 @@ class AdminProjectController extends Controller
             ->with('success', 'Project deleted successfully!');
     }
 
+    /**
+     * Upload image file
+     */
+    private function uploadImage($file): string
+    {
+        $filename = time() . '_' . Str::random(10) . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('projects/images', $filename, 'public');
 
+        return $path;
+    }
 }

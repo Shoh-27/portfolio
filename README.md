@@ -179,19 +179,6 @@ portfolio/
 
 ---
 
-## 📸 Screenshots
-
-### Homepage
-![Homepage](docs/screenshots/home.png)
-
-### Projects
-![Projects](docs/screenshots/projects.png)
-
-### Admin Panel
-![Admin](docs/screenshots/admin.png)
-
----
-
 ## 🎨 Customization
 
 ### Update Personal Info
@@ -335,9 +322,7 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Your Name**
-- Website: [yourwebsite.com](https://yourwebsite.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourusername)
+- GitHub: [@shoh-27](https://github.com/shoh-27)
 
 ---
 
@@ -349,4 +334,4 @@ Give a ⭐️ if this project helped you!
 
 ## 📧 Contact
 
-For questions or support, email: your.email@example.com
+For questions or support, email: shoh.nizmov.dev@gmail.com

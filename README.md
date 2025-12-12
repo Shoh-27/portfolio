@@ -61,7 +61,7 @@ A modern, production-ready portfolio website built with **Laravel**, **Blade**, 
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/shoh-27/portfolio.git
 cd portfolio
 ```
 

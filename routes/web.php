@@ -19,7 +19,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 //Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name('projects.show');
 //Route::get('/projects/{project:slug}/download', [ProjectController::class, 'download'])->name('projects.download');
 //
-///*
+/*
 |--------------------------------------------------------------------------
 | Admin Routes (Protected)
 |--------------------------------------------------------------------------

@@ -103,5 +103,17 @@ class AdminProjectController extends Controller
             ->with('success', 'Project updated successfully!');
     }
 
+    /**
+     * Remove the specified project from storage
+     */
+    public function destroy(Project $project)
+    {
+        // Files will be deleted automatically via model event
+        $project->delete();
+
+        return redirect()->route('admin.projects.index')
+            ->with('success', 'Project deleted successfully!');
+    }
+
 
 }

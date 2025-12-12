@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+class AdminProjectController extends Controller
+{
+    /**
+     * Display a listing of projects in admin
+     */
+    public function index()
+    {
+        $projects = Project::orderBy('order', 'asc')
+            ->orderBy('created_at', 'desc')
+            ->paginate(15);
+
+        return view('admin.projects.index', compact('projects'));
+    }
+
+
+}
